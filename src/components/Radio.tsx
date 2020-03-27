@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import T from './Typography';
-import colors from '../style/colors';
+import Box from './Box';
 
 interface Props {
   value: number;
@@ -24,8 +24,8 @@ export default function Radio({
   }
 
   return (
-    <Container>
-      <Box onClick={handleClick} selected={selected}></Box>
+    <Container onClick={handleClick}>
+      <Box selected={selected}></Box>
       <T.P2>{text}</T.P2>
     </Container>
   );
@@ -35,18 +35,4 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   height: 30px;
-`;
-
-interface Box {
-  selected: boolean;
-}
-
-const Box = styled.div`
-  height: 20px;
-  width: 20px;
-  margin-right: 5px;
-  cursor: pointer;
-  border: 2px solid ${colors.orange};
-  background-color: ${({ selected }: Box) =>
-    selected ? colors.orange : 'white'};
 `;
