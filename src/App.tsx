@@ -7,7 +7,7 @@ import Visualise from './components/Visualise';
 
 const App = () => {
   const [baseRate, setBaseRate] = useState(2);
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
 
   return (
     <Container>

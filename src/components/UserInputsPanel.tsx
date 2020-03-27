@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import riskData from '../data/mockRisk.json';
+import riskData from '../data/risk.json';
 import * as TS from '../types';
 import colors from '../style/colors';
 import device from '../style/device';
@@ -49,7 +49,7 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
       return conditionMatch && ageMatch && sexMatch && multiMatch;
     });
 
-    return filtered.km1;
+    return Math.random();
   }
 
   function matchCondition(condition) {
@@ -82,7 +82,7 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
     e.stopPropagation();
     setMobileOpen(false);
     calculateBaseRate();
-    setPage(1);
+    setPage(2);
   }
 
   const haveValues = sex && age;
