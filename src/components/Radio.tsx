@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import T from './Typography';
-import Box from './Box';
+import Box from './Checkbox';
 
 interface Props {
   value: number;

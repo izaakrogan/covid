@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import InputWrapper from './InputWrapper';
+import InputWrapper from './InputsPanelInputWrapper';
 import colors from '../style/colors';
 
 interface Props {

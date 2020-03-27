@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import SliderPanel from './SliderPanel';
-import VizColumn from './VisColumn';
+import SliderPanel from './BottomPanel';
+import VizColumn from './VisForceColumn';
 import NextButton from './VisNextButton';
 
 export default function Visualise({ page, setPage, baseRate }) {

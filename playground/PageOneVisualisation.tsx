@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import ForceDirected from '../src/components/ForceDirected';
-import SliderPanel from '../src/components/SliderPanel';
+import ForceDirected from '../src/components/VisForceViz';
+import SliderPanel from '../src/components/BottomPanel';
 
 export default function PageOne({ page, baseRate, mortalityRiskWithCovid }) {
   console.log('page:', page);

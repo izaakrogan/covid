@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { hot } from 'react-hot-loader/root';
 
-import UserInputsPanel from './components/UserInputsPanel';
-import Visualise from './components/Visualise';
+import InputsPanel from './components/InputsPanel';
+import Visualise from './components/Visualisation';
 
 const App = () => {
   const [baseRate, setBaseRate] = useState(2);
@@ -13,7 +13,7 @@ const App = () => {
   setTimeout(() => setLoaded(true), 100);
   return (
     <Container loaded={loaded}>
-      <UserInputsPanel setBaseRate={setBaseRate} setPage={setPage} />
+      <InputsPanel setBaseRate={setBaseRate} setPage={setPage} />
       <Visualise baseRate={baseRate} page={page} setPage={setPage} />
     </Container>
   );

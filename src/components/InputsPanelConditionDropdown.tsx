@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import * as TS from '../types';
 import colors from '../style/colors';
 import rawConditions from '../data/conditions';
-import Selected from './ConditionDropdownSelected';
-import Condition from './ConditionDropdownOption';
+import Selected from './InputsPanelConditionDropdownSelected';
+import Condition from './InputsPanelConditionDropdownOption';
 
 interface Props {
   selectedCondition: TS.Condition;

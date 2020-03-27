@@ -5,17 +5,17 @@ import riskData from '../data/risk.json';
 import * as TS from '../types';
 import colors from '../style/colors';
 import device from '../style/device';
-import Age from './AgeInput';
-import Sex from './SexInput';
-import Condition from './Condition';
-import Header from './Header';
+import Age from './InputsPanelAgeInput';
+import Sex from './InputsPanelSexInput';
+import Condition from './InputsPanelCondition';
+import Header from './InputsPanelHeader';
 
 interface Props {
   setBaseRate: (baseRate: number) => void;
   setPage: any;
 }
 
-export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
+export default function InputsPanel({ setBaseRate, setPage }: Props) {
   const [age, setAge] = useState<number>();
   const [sex, setSex] = useState('');
   const [selectedCondition, setSelectedCondition] = useState<TS.Condition>({

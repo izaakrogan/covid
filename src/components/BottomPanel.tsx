@@ -5,7 +5,7 @@ import T from './Typography';
 import colors from '../style/colors';
 import device from '../style/device';
 
-import PanelColumn from './PanelColumn';
+import PanelColumn from './BottomPanelColumn';
 
 interface Props {
   setRelativeRisk: (a: number) => void;
