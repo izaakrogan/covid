@@ -2,18 +2,24 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import * as TS from '../types';
+import colors from '../style/colors';
 import InputWrapper from './InputWrapper';
 import ConditionsDropdown from './ConditionsDropdown';
 import Selected from './ConditionsSelected';
-import T from './Typography';
-import colors from '../style/colors';
 
 interface Props {
-  conditions: TS.Condition[];
-  setConditions: (a: TS.Condition[]) => void;
+  selectedCondition: TS.Condition;
+  setSelectedCondition: (a: TS.Condition) => void;
+  multiCondition: boolean;
+  setMultiCondition: (checked: boolean) => void;
 }
 
-export default function ConditionsInput({ conditions, setConditions }: Props) {
+export default function ConditionsInput({
+  selectedCondition,
+  setSelectedCondition,
+  multiCondition,
+  setMultiCondition,
+}: Props) {
   const [value, setValue] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -43,12 +49,17 @@ export default function ConditionsInput({ conditions, setConditions }: Props) {
   }
 
   function handleSelectCondition(condition: TS.Condition) {
-    setConditions([condition]);
+    setSelectedCondition(condition);
     setDropdownOpen(false);
   }
 
   function handleUnselectCondition() {
-    setConditions([]);
+    setSelectedCondition(undefined);
+  }
+
+  function handleCheck(e) {
+    const { checked } = e.target;
+    setMultiCondition(checked);
   }
 
   return (
@@ -61,13 +72,20 @@ export default function ConditionsInput({ conditions, setConditions }: Props) {
         />
         <ConditionsDropdown
           inputValue={value}
-          conditions={conditions}
+          selectedCondition={selectedCondition}
           selectCondition={handleSelectCondition}
           dropdownOpen={dropdownOpen}
         />
         <Selected
-          conditions={conditions}
+          selectedCondition={selectedCondition}
           unselectCondition={handleUnselectCondition}
+        />
+        <label>I have more than one condition</label>
+        <input
+          type="checkbox"
+          value="Submit"
+          checked={multiCondition}
+          onChange={handleCheck}
         />
       </Container>
     </InputWrapper>

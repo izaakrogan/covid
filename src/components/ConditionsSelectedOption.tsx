@@ -7,18 +7,18 @@ import cross from '../images/cross.svg';
 import colors from '../style/colors';
 
 interface Props {
-  condition: TS.Condition;
+  selectedCondition: TS.Condition;
   unselectCondition: () => void;
 }
 
 export default function SelectedCondition({
-  condition,
+  selectedCondition,
   unselectCondition,
 }: Props) {
   return (
     <Container onClick={unselectCondition}>
       <Image src={cross} />
-      <T.P2>{condition.name}</T.P2>
+      <T.P2>{selectedCondition.name}</T.P2>
     </Container>
   );
 }

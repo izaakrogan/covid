@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { hot } from 'react-hot-loader/root';
 
 import UserInputsPanel from './components/UserInputsPanel';
-import Right from './components/Right';
+import Visualise from './components/Visualise';
 
 const App = () => {
   const [baseRate, setBaseRate] = useState(2);
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Container>
       <UserInputsPanel setBaseRate={setBaseRate} setPage={setPage} />
-      <Right baseRate={baseRate} page={page} setPage={setPage} />
+      <Visualise baseRate={baseRate} page={page} setPage={setPage} />
     </Container>
   );
 };

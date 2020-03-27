@@ -1,4 +1,4 @@
 export interface Condition {
   name: string;
-  mortalityRate: number;
+  id: string;
 }

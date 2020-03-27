@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as d3 from 'd3';
+
+import riskData from '../data/risk.json';
 import * as TS from '../types';
-import T from './Typography';
 import colors from '../style/colors';
 import device from '../style/device';
 import Age from './AgeInput';
@@ -18,8 +19,9 @@ interface Props {
 export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
   const [age, setAge] = useState<number>();
   const [sex, setSex] = useState('');
+  const [selectedCondition, setSelectedCondition] = useState<TS.Condition>();
+  const [multiCondition, setMultiCondition] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(true);
-  const [conditions, setConditions] = useState<TS.Condition[]>([]);
 
   function openOnMobile() {
     setMobileOpen(true);
@@ -31,37 +33,55 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
   }
 
   function calculateBaseRate() {
-    const ageVariant = ageToMultiplier(age);
-    const sexVariant = sexToMultiplier(sex);
-    const conditionsVariant = conditionsToMultiplier(conditions);
-    const baseRate = multiplyRate(ageVariant, sexVariant, conditionsVariant);
-    setBaseRate(baseRate);
+    const baseRate = filterByInputs();
+    const basePercentage = baseRate * 100;
+    setBaseRate(basePercentage);
   }
 
-  function ageToMultiplier(age: number) {
-    return age > 70 ? 2 : 1;
+  function filterByInputs() {
+    const filtered = riskData.find(condition => {
+      const conditionMatch = matchCondition(condition);
+      const ageMatch = matchAge(condition);
+      const sexMatch = matchSex(condition);
+      const multiMatch = matchMulti(condition);
+      return conditionMatch && ageMatch && sexMatch && multiMatch;
+    });
+
+    return filtered.km1;
   }
 
-  function sexToMultiplier(sex: string) {
-    return sex === 'Female' ? 1 : 1.2;
+  function matchCondition(condition) {
+    const noCondition = !selectedCondition;
+    if (noCondition) return condition.var === 'no_conditions';
+    return condition.var === selectedCondition.id;
   }
 
-  function conditionsToMultiplier(conditions: TS.Condition[]) {
-    return conditions.reduce((acc, condition) => {
-      return (acc += condition.mortalityRate);
-    }, 1);
+  function matchAge(condition) {
+    const isOlder = age > 70;
+    const ageString = isOlder ? '>70' : '<=70';
+    const matchAge = condition.age === ageString;
+    return matchAge;
   }
 
-  function multiplyRate(age: number, sex: number, conditions: number) {
-    return age * sex * conditions;
+  function matchSex(condition) {
+    const sexString = sex === 'male' ? 'Men' : 'Women';
+    const matchSex = condition.sex === sexString;
+    return matchSex;
+  }
+
+  function matchMulti(condition) {
+    const noCondition = !selectedCondition;
+    if (noCondition) return condition.n_rf === 0;
+    const multi = multiCondition ? '2+' : 1;
+    return condition.n_rf === multi;
   }
 
   function handleCalculate(e) {
     e.stopPropagation();
     setMobileOpen(false);
-    d3.select('#force-directed')
-      .selectAll(`circle`)
-      .remove();
+    // d3.select('#force-directed')
+    //   .selectAll(`circle`)
+    //   .remove();
     calculateBaseRate();
     setPage(1);
   }
@@ -74,7 +94,12 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
         <Inputs>
           <Age age={age} setAge={setAge} />
           <Sex sex={sex} setSex={setSex} />
-          <Conditions conditions={conditions} setConditions={setConditions} />
+          <Conditions
+            selectedCondition={selectedCondition}
+            setSelectedCondition={setSelectedCondition}
+            multiCondition={multiCondition}
+            setMultiCondition={setMultiCondition}
+          />
         </Inputs>
         <ButtonStyled onClick={handleCalculate} disabled={!haveValues}>
           Calculate

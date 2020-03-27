@@ -10,15 +10,13 @@ import arrow from '../images/down-arrow.svg';
 interface Props {
   sliderPanelOpen: boolean;
   setSliderPanelOpen: any;
-  setNHSAffectedRate: any;
-  setCovidMortalityRate: any;
+  setRelativeRisk: (a: number) => void;
 }
 
 export default function SliderPanel({
   sliderPanelOpen,
   setSliderPanelOpen,
-  setNHSAffectedRate,
-  setCovidMortalityRate,
+  setRelativeRisk,
 }: Props) {
   return (
     <Container open={sliderPanelOpen}>
@@ -27,18 +25,11 @@ export default function SliderPanel({
         Assumptions
       </Title>
       <SliderColumn
-        id="slider-one"
-        title="Estimated affect on the NHS of the current emergency"
-        subtitle="The lowest"
-        handleChange={setNHSAffectedRate}
-      />
-      <SliderColumn
         id="slider-two"
         title="Estimated mortality rate of people with my condition"
         subtitle="blah"
-        handleChange={setCovidMortalityRate}
+        handleChange={setRelativeRisk}
       />
-
       <Arrow
         src={arrow}
         sliderPanelOpen={sliderPanelOpen}
@@ -95,21 +86,6 @@ const Container = styled.div`
       }
     }}
   }
-`;
-
-const Column = styled.div`
-  width: 30%;
-  min-height: 100%;
-  max-height: 100%;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-const SliderSvg = styled.svg`
-  width: 200px;
-  height: 100px;
 `;
 
 const Title = styled(T.H3)`

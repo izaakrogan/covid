@@ -7,14 +7,21 @@ interface Props {
   position: number;
   id: string;
   x: number;
+  y?: number;
 }
 
-export default function ForceDirected({ deathRate, position, id, x }: Props) {
+export default function ForceDirected({
+  deathRate,
+  position,
+  id,
+  x,
+  y,
+}: Props) {
   const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   return () => d3.selectAll(`.circle-${position}`).remove();
-  // }, [position]);
+  useEffect(() => {
+    return () => d3.selectAll(`.circle-${position}`).remove();
+  }, [position]);
 
   useEffect(() => {
     const data = d3.range(100).map((n, i) => {
@@ -38,7 +45,7 @@ export default function ForceDirected({ deathRate, position, id, x }: Props) {
 
     d3.forceSimulation(data)
       .force('collision', collision)
-      .force('center', d3.forceCenter(x, 300))
+      .force('center', d3.forceCenter(x, y))
       .on('tick', () => {
         // call the tick function running the simulation
         d3.selectAll(`.circle-${position}`)
@@ -60,7 +67,7 @@ export default function ForceDirected({ deathRate, position, id, x }: Props) {
       .attr('fill', d => d.fillColor);
 
     circles.attr('fill', d => d.fillColor);
-  }, [data, deathRate, id, position, x]);
+  }, [data, deathRate, id, position, x, y]);
 
   return null;
 }

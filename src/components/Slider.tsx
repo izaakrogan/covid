@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import { useEffect } from 'react';
 import * as d3 from 'd3';
 import colors from '../style/colors';
 
@@ -7,11 +6,11 @@ export default function Slider({ id, setVal }) {
   useEffect(() => {
     const yVal = 40;
     const padding = 20;
-    const maxVal = 20;
+    const maxVal = 2;
     const svgWidth = 300;
     const xScale = d3
       .scaleLinear()
-      .domain([10, maxVal])
+      .domain([1.2, maxVal])
       .range([padding, svgWidth - padding])
       .clamp(true);
     const svg = d3.select(`#${id}`);
