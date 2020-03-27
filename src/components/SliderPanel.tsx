@@ -30,14 +30,13 @@ export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
         title="% of population infected with COVID-19"
         description="The percentage of people with the infection in the population affects how likely you are to be infected with COVID-19."
         options={[
-          { label: 'Low (1%)', val: 1.2 },
-          { label: 'Medium (10%)', val: 1.2 },
-          { label: 'High (80%)', val: 1.2 },
+          { label: 'Low (1%)', val: 1 },
+          { label: 'Medium (10%)', val: 10 },
+          { label: 'High (80%)', val: 80 },
         ]}
-        onChange={setRelativeRisk}
-        defaultVal={relativeRisk}
+        onChange={() => console.log('called')}
+        defaultVal={80}
       />
-      {/* <ChangeRR setRelativeRisk={setRelativeRisk} relativeRisk={0.2} /> */}
     </Container>
   );
 }
@@ -47,7 +46,8 @@ interface Container {
 }
 
 const Container = styled.div`
-  width: 100%;
+  display: flex;
+  flex: 1;
   height: 250px;
   border-top: 1px solid ${colors.orange};
   display: flex;
@@ -66,12 +66,4 @@ const Container = styled.div`
     z-index: 20;
     opacity: 0;
   }
-`;
-const Content = styled.div`
-  width: 100%;
-`;
-
-const Title = styled(T.H3)`
-  margin-left: 30px;
-  margin-top: 50px;
 `;

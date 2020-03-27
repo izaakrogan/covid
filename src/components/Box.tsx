@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function Radio({ selected }: Props) {
-  const tickIcon = selected ? <Tick src={tick} /> : null;
+  const tickIcon = selected ? <img src={tick} /> : null;
   return <Container selected={selected}>{tickIcon}</Container>;
 }
 
@@ -25,10 +25,4 @@ const Container = styled.div`
   border: 2px solid ${colors.orange};
   background-color: ${({ selected }: Container) =>
     selected ? colors.orange : 'white'};
-`;
-
-const Tick = styled.img`
-  * {
-    fill-rule: white;
-  }
 `;
