@@ -24,16 +24,14 @@ export default function PanelColumn({
       <Title>{title}</Title>
       <T.P2>{description}</T.P2>
       <RadioWrapper>
-        {options.map(o => {
-          return (
-            <Radio
-              value={o.val}
-              setRelativeRisk={onChange}
-              relativeRisk={defaultVal}
-              text={o.label}
-            />
-          );
-        })}
+        {options.map(o => (
+          <Radio
+            value={o.val}
+            setRelativeRisk={onChange}
+            relativeRisk={defaultVal}
+            text={o.label}
+          />
+        ))}
       </RadioWrapper>
     </Container>
   );
