@@ -20,7 +20,7 @@ export default function CovidMortality({
 
   return (
     <Container>
-      <H4Styled>Your risk of dying in the next year with COVID-19</H4Styled>
+      <H4Styled>Your risk of dying in the next year with Corona virus</H4Styled>
       <Wrapper>
         <Dots rate={rate} type={'covid'} />
         <ChangeRR
