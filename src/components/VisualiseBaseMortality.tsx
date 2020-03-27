@@ -13,7 +13,10 @@ export default function BaseMortality({ rate }) {
 
   return (
     <Container>
-      <H4Styled>Your risk of dying in the next year with no covid</H4Styled>
+      <H4Styled>
+        Your risk of dying within the next year if corona virus had never
+        existed
+      </H4Styled>
       <Dots rate={rate} type={'base'} />
       <TextWrapper>
         <H1Styled>{formattedPercentage}%</H1Styled>

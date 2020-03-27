@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import * as d3 from 'd3';
 
 import riskData from '../data/risk.json';
 import * as TS from '../types';
@@ -8,7 +7,7 @@ import colors from '../style/colors';
 import device from '../style/device';
 import Age from './AgeInput';
 import Sex from './SexInput';
-import Conditions from './Conditions';
+import Condition from './Condition';
 import Header from './Header';
 
 interface Props {
@@ -19,7 +18,10 @@ interface Props {
 export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
   const [age, setAge] = useState<number>();
   const [sex, setSex] = useState('');
-  const [selectedCondition, setSelectedCondition] = useState<TS.Condition>();
+  const [selectedCondition, setSelectedCondition] = useState<TS.Condition>({
+    name: 'no_conditions',
+    id: 'no_conditions',
+  });
   const [multiCondition, setMultiCondition] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(true);
 
@@ -79,9 +81,6 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
   function handleCalculate(e) {
     e.stopPropagation();
     setMobileOpen(false);
-    // d3.select('#force-directed')
-    //   .selectAll(`circle`)
-    //   .remove();
     calculateBaseRate();
     setPage(1);
   }
@@ -94,7 +93,7 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
         <Inputs>
           <Age age={age} setAge={setAge} />
           <Sex sex={sex} setSex={setSex} />
-          <Conditions
+          <Condition
             selectedCondition={selectedCondition}
             setSelectedCondition={setSelectedCondition}
             multiCondition={multiCondition}
@@ -114,7 +113,7 @@ interface Container {
 }
 
 const MobileDrawer = styled.div`
-  width: 400px;
+  min-width: 400px;
   background: white;
   transition: max-width 0.3s;
   overflow: hidden;
