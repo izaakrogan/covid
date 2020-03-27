@@ -8,8 +8,8 @@ interface Props {
   title: string;
   description: string;
   options: any[];
-  onChange: any;
-  defaultVal: any;
+  onChange?: any;
+  defaultVal?: any;
 }
 
 export default function PanelColumn({
@@ -43,9 +43,9 @@ interface Container {
 
 const Container = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  margin: 20px;
-  width: 40%;
+  padding: 20px 40px;
 `;
 const RadioWrapper = styled.div`
   margin-top: 20px;
