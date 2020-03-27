@@ -49,7 +49,7 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
       return conditionMatch && ageMatch && sexMatch && multiMatch;
     });
 
-    return Math.random();
+    return Math.random() / 5;
   }
 
   function matchCondition(condition) {

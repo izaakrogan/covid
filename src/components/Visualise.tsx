@@ -7,7 +7,7 @@ import NextButton from './VisNextButton';
 
 export default function Visualise({ page, setPage, baseRate }) {
   const [relativeRisk, setRelativeRisk] = useState(2);
-  const mortalityRiskWithCovid = baseRate * relativeRisk;
+  let mortalityRiskWithCovid = baseRate * relativeRisk;
 
   if (page === 1) return null;
 
