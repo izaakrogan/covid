@@ -19,7 +19,7 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
   const [age, setAge] = useState<number>();
   const [sex, setSex] = useState('');
   const [selectedCondition, setSelectedCondition] = useState<TS.Condition>({
-    name: 'no_conditions',
+    name: 'No conditions',
     id: 'no_conditions',
   });
   const [multiCondition, setMultiCondition] = useState(false);
@@ -48,7 +48,6 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
       const multiMatch = matchMulti(condition);
       return conditionMatch && ageMatch && sexMatch && multiMatch;
     });
-
     return filtered.km1;
   }
 

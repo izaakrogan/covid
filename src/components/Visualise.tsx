@@ -13,13 +13,13 @@ export default function Visualise({ page, setPage, baseRate }) {
       <VizColumn
         rate={baseRate}
         type="base"
-        title="Your risk of dying in the next year with no covid"
+        title="Your risk of dying within the next year if Corona virus had never existed"
         description="Estimated one year mortality risk for a 35 year old woman with x, yand z is:"
       />
       <VizColumn
         rate={mortalityRiskWithCovid}
         type="covid"
-        title="Your risk of dying in the next year with no covid"
+        title="Your risk of dying in the next year if you contract Corona virus"
         description="Estimated one year mortality risk for a 35 year old woman with x, y and z is:"
       />
       <SliderPanel
