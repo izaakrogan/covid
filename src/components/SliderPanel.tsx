@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import T from './Typography';
@@ -13,6 +13,7 @@ interface Props {
 }
 
 export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
+  const [mock, setMock] = useState(10);
   return (
     <Container>
       <PanelColumn
@@ -34,8 +35,8 @@ export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
           { label: 'Medium (10%)', val: 10 },
           { label: 'High (80%)', val: 80 },
         ]}
-        onChange={() => console.log('called')}
-        defaultVal={80}
+        onChange={setMock}
+        defaultVal={mock}
       />
     </Container>
   );
