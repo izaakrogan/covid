@@ -64,7 +64,7 @@ export default [
     id: 'transplant.1',
   },
   {
-    name: 'no_conditions',
+    name: 'No conditions',
     id: 'no_conditions',
   },
 ];

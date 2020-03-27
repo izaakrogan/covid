@@ -53,5 +53,5 @@ const RadioWrapper = styled.div`
 `;
 
 const Title = styled(T.H4)`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;

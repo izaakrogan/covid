@@ -16,11 +16,11 @@ export default function VizColumn({ rate, type, title, description }: Props) {
 
   return (
     <Container>
-      <H4Styled>{title}</H4Styled>
+      <H4Styled>{title}:</H4Styled>
       <Dots rate={rate} type={type} />
       <TextWrapper>
         <H1Styled>{formattedPercentage}%</H1Styled>
-        <PStyled>{description}</PStyled>
+        {/* <PStyled>{description}</PStyled> */}
       </TextWrapper>
     </Container>
   );
@@ -36,6 +36,8 @@ const Container = styled.div`
 
 const H4Styled = styled(T.H4)`
   margin-bottom: 20px;
+  width: 60%;
+  height: 50px;
 `;
 
 const H1Styled = styled(T.H1)`
@@ -46,14 +48,17 @@ const H1Styled = styled(T.H1)`
 `;
 
 const PStyled = styled(T.P2)`
-  min-width: 100%;
-  text-align: left;
   font-size: 12px;
   margin: 0;
   transition: opacity 0.5s;
+  text-align: right;
+  max-width: 60%;
 `;
 
 const TextWrapper = styled.div`
-  width: 220px;
-  margin-top: 20px;
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 60%;
 `;

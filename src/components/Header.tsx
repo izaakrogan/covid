@@ -31,6 +31,7 @@ const Container = styled.div`
 const Title = styled(T.H1)`
   margin: 20px;
   margin-right: 0;
+  margin-bottom: 40px;
 `;
 
 const Cross = styled.img`
