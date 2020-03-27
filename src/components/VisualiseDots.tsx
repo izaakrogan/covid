@@ -38,10 +38,10 @@ export default function BaseMortality({ rate, type }: Props) {
 
 const Container = styled.div`
   width: 50%;
-  border: 1px solid;
   height: 300px;
   width: 100%;
   overflow: hidden;
+  border: 1px solid;
 `;
 
 const Svg = styled.svg`

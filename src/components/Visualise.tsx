@@ -6,7 +6,6 @@ import CovidMorality from './VisualiseCovidMorality';
 
 export default function Visualise({ page, setPage, baseRate }) {
   const [relativeRisk, setRelativeRisk] = useState(2);
-
   const mortalityRiskWithCovid = baseRate * relativeRisk;
 
   return (
