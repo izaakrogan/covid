@@ -12,7 +12,7 @@ interface Props {
 export default function ChangeRR({ setRelativeRisk, relativeRisk }) {
   return (
     <Container>
-      <H4Styled>Impact of COVID-19</H4Styled>
+      <H4Styled>Impact of Corona virus</H4Styled>
       <Radio
         value={1.2}
         setRelativeRisk={setRelativeRisk}

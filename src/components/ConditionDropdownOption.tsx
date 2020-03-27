@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import T from './Typography';
 import * as TS from '../types';
+import colors from '../style/colors';
 
 interface Props {
   condition: TS.Condition;
@@ -27,4 +28,10 @@ export default function ConditionsDropdownConditions({
 const Container = styled.div`
   padding: 5px;
   cursor: pointer;
+  &:hover {
+    background: ${colors.orange};
+    p {
+      color: white;
+    }
+  }
 `;

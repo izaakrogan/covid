@@ -17,19 +17,19 @@ export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
   return (
     <Container>
       <PanelColumn
-        title="Impact of Covid 19"
-        description="The impact of COVID-19 is a combination of the virus itself as well as the ability of the health system to cope."
+        title="Impact of Corona virus"
+        description="The impact of Corona virus is a combination of the virus itself as well as the ability of the health system to cope."
         options={[
-          { label: 'mild', val: 1.2 },
-          { label: 'moderate', val: 1.5 },
-          { label: 'severe', val: 2 },
+          { label: 'Best case scenario', val: 1.2 },
+          { label: 'Middle case scenario', val: 1.5 },
+          { label: 'Worst case scenario', val: 2 },
         ]}
         onChange={setRelativeRisk}
         defaultVal={relativeRisk}
       />
       <PanelColumn
-        title="% of population infected with COVID-19"
-        description="The percentage of people with the infection in the population affects how likely you are to be infected with COVID-19."
+        title="% of population infected with Corona virus"
+        description="The percentage of people with the infection in the population affects how likely you are to be infected with Corona virus."
         options={[
           { label: 'Low (1%)', val: 1 },
           { label: 'Medium (10%)', val: 10 },

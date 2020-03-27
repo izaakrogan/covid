@@ -250,11 +250,11 @@ shinyServer(function(input, output) {
     
 
     if(input$sex_strat=="Yes"){
-      "Excess deaths in the UK due to COVID-19, stratified by age, sex and number of underlying conditions"
+      "Excess deaths in the UK due to Corona virus, stratified by age, sex and number of underlying conditions"
       
     }
     else if (input$sex_strat=="No"){
-      "Excess deaths in the UK due to COVID-19, stratified by age and number of underlying conditions"
+      "Excess deaths in the UK due to Corona virus, stratified by age and number of underlying conditions"
     }
   })
   
@@ -262,11 +262,11 @@ shinyServer(function(input, output) {
     
     
     if(input$sex_strat=="Yes"){
-      "Total excess deaths in the UK due to COVID-19, stratified by sex"
+      "Total excess deaths in the UK due to Corona virus, stratified by sex"
       
     }
     else if (input$sex_strat=="No"){
-      "Total excess deaths in the UK due to COVID-19"
+      "Total excess deaths in the UK due to Corona virus"
     }
   })
   
