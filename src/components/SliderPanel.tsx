@@ -47,7 +47,7 @@ interface Container {
 }
 
 const Container = styled.div`
-  max-width: 70%;
+  width: 100%;
   height: 250px;
   border-top: 1px solid ${colors.orange};
   display: flex;
@@ -57,7 +57,7 @@ const Container = styled.div`
   background: ${colors.backgroundGrey};
   overflow: hidden;
   background: white;
-
+  padding: 0 20px;
   @media ${device.tablet} {
     transition: height 0s, opacity 1s;
     width: 100vw;
@@ -66,6 +66,9 @@ const Container = styled.div`
     z-index: 20;
     opacity: 0;
   }
+`;
+const Content = styled.div`
+  width: 100%;
 `;
 
 const Title = styled(T.H3)`
