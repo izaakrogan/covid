@@ -22,6 +22,7 @@ export default function PanelColumn({
   return (
     <Container>
       <Title>{title}</Title>
+      <T.P2>{description}</T.P2>
       <RadioWrapper>
         {options.map(o => {
           return (
@@ -34,7 +35,6 @@ export default function PanelColumn({
           );
         })}
       </RadioWrapper>
-      <T.P3>{description}</T.P3>
     </Container>
   );
 }
@@ -46,11 +46,11 @@ interface Container {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 40px;
+  margin: 20px;
   width: 40%;
 `;
 const RadioWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-top: 20px;
 `;
 
 const Title = styled(T.H4)`
