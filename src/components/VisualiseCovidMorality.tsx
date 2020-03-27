@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import T from './Typography';
 import Dots from './VisualiseDots';
-import ChangeRR from './VisualiseCovidMortalityChangeRR';
+import ChangeRR from '../../playground/VisualiseCovidMortalityChangeRR';
 
 interface Props {
   setRelativeRisk: (a: number) => void;
