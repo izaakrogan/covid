@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import riskData from '../data/risk.json';
+import riskData from '../data/mockRisk.json';
 import * as TS from '../types';
 import colors from '../style/colors';
 import device from '../style/device';

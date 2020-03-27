@@ -1,70 +1,66 @@
 export default [
-  // {
-  //   name: 'age>70',
-  //   id: 'age>70',
-  // },
   {
-    name: 'chronic_resp_dis',
+    name: 'Chronic respiratory disease',
     id: 'chronic_resp_dis',
   },
   {
-    name: 'chronic_heart_dis',
+    name: 'Chronic heart disease',
     id: 'chronic_heart_dis',
   },
   {
-    name: 'chronic_liver_dis',
+    name: 'Chronic liver disease',
     id: 'chronic_liver_dis',
   },
   {
-    name: 'chronic_neuro',
+    name: 'Chronic neurological disease',
     id: 'chronic_neuro',
   },
   {
-    name: 'dm',
+    name: 'Diabetes',
     id: 'dm',
   },
   {
-    name: 'spleen_problems',
+    name: 'Problems with your spleen',
     id: 'spleen_problems',
   },
   {
-    name: 'weak_immune',
+    name: 'Weakened immune system (e.g) HIV',
     id: 'weak_immune',
   },
   {
-    name: 'bmi40',
+    name: 'Seriously overweight (BMI>40)',
     id: 'bmi40',
   },
   {
-    name: 'pregnancy.1',
+    name: 'Pregnant',
     id: 'pregnancy.1',
   },
   {
-    name: 'preg_heart_dis',
+    name: 'Pregnant with significant heart disease',
     id: 'preg_heart_dis',
   },
   {
-    name: 'scid_sickle_cell',
+    name: 'Sickle cell disease',
     id: 'scid_sickle_cell',
   },
   {
-    name: 'immunosupression',
+    name: 'Immunosupression therapies',
     id: 'immunosupression',
   },
   {
-    name: 'severe_resp_dis',
+    name: 'Severe respiratory disease',
     id: 'severe_resp_dis',
   },
   {
-    name: 'renal.hist',
+    name: 'Chronic kidney disease',
     id: 'renal.hist',
   },
   {
-    name: 'cancer_chemo',
+    name: 'Cancer (any type)',
     id: 'cancer_chemo',
   },
   {
-    name: 'transplant.1',
+    name: 'Transplant (any type)',
     id: 'transplant.1',
   },
   {
