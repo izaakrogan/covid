@@ -1,26 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import T from './Typography';
+import Box from './Box';
+
 interface Props {
   multiCondition: boolean;
   setMultiCondition: (checked: boolean) => void;
 }
 
 export default function Checkbox({ multiCondition, setMultiCondition }: Props) {
-  function handleCheck(e) {
-    const { checked } = e.target;
-    setMultiCondition(checked);
+  function handleCheck() {
+    setMultiCondition(!multiCondition);
   }
 
   return (
-    <Container>
-      <Input
-        type="checkbox"
-        value="Submit"
-        checked={multiCondition}
-        onChange={handleCheck}
-      />
-      <label>I have more than one condition</label>
+    <Container onClick={handleCheck}>
+      <Box selected={multiCondition} />
+      <T.P2>I have more than one condition</T.P2>
     </Container>
   );
 }
@@ -28,10 +25,7 @@ export default function Checkbox({ multiCondition, setMultiCondition }: Props) {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px;
-`;
-
-const Input = styled.input`
-  height: 30px;
-  width: 30px;
+  margin-top: 20px;
+  user-select: none;
+  cursor: pointer;
 `;
