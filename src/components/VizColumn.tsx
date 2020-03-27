@@ -5,25 +5,22 @@ import T from './Typography';
 import Dots from './VisualiseDots';
 
 interface Props {
-  baseRate: number;
+  rate: number;
+  type: string;
+  title: string;
+  description: string;
 }
 
-export default function BaseMortality({ rate }) {
+export default function VizColumn({ rate, type, title, description }: Props) {
   const formattedPercentage = rate.toFixed(1);
 
   return (
     <Container>
-      <H4Styled>
-        Your risk of dying within the next year if corona virus had never
-        existed
-      </H4Styled>
-      <Dots rate={rate} type={'base'} />
+      <H4Styled>{title}</H4Styled>
+      <Dots rate={rate} type={type} />
       <TextWrapper>
         <H1Styled>{formattedPercentage}%</H1Styled>
-        <PStyled>
-          Estimated one year mortality risk for a 35 year old woman with x, y
-          and z is:
-        </PStyled>
+        <PStyled>{description}</PStyled>
       </TextWrapper>
     </Container>
   );
@@ -35,6 +32,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 250px;
 `;
 
 const H4Styled = styled(T.H4)`

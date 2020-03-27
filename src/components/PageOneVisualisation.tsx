@@ -2,10 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import ForceDirected from './ForceDirected';
+import SliderPanel from './SliderPanel';
 
 export default function PageOne({ page, baseRate, mortalityRiskWithCovid }) {
+  console.log('page:', page);
   const containerRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
+
   function getVisPosition(position: number) {
     const quatre = width / 4;
     if (position === 0) {
@@ -51,14 +54,15 @@ export default function PageOne({ page, baseRate, mortalityRiskWithCovid }) {
   }
 
   return (
-    <VisualisationContainer ref={containerRef}>
-      {renderVisualisation()}
-    </VisualisationContainer>
+    <>
+      <VisualisationContainer ref={containerRef}>
+        {renderVisualisation()}
+      </VisualisationContainer>
+    </>
   );
 }
 
 const VisualisationContainer = styled.div`
   width: 100%;
   height: 400px;
-  border: 1px solid;
 `;

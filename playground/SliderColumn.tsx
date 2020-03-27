@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Slider from './Slider';
-import T from './Typography';
+import T from '../src/components/Typography';
 
 interface Props {
   title: string;
@@ -10,7 +10,12 @@ interface Props {
   handleChange: any;
 }
 
-export default function SliderColumn({ title, subtitle, id, handleChange }: Props) {
+export default function SliderColumn({
+  title,
+  subtitle,
+  id,
+  handleChange,
+}: Props) {
   return (
     <Column>
       <Writing>

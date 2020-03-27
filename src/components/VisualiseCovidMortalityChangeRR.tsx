@@ -37,7 +37,6 @@ export default function ChangeRR({ setRelativeRisk, relativeRisk }) {
 
 const Container = styled.div`
   width: 50%;
-  border: 1px solid;
 `;
 
 const H4Styled = styled(T.H4)`

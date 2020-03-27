@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import BaseMortality from './VisualiseBaseMortality';
-import CovidMorality from './VisualiseCovidMorality';
+import SliderPanel from './SliderPanel';
+import VizColumn from './VizColumn';
 
 export default function Visualise({ page, setPage, baseRate }) {
   const [relativeRisk, setRelativeRisk] = useState(2);
@@ -10,11 +10,21 @@ export default function Visualise({ page, setPage, baseRate }) {
 
   return (
     <Container>
-      <BaseMortality rate={baseRate} />
-      <CovidMorality
+      <VizColumn
+        rate={baseRate}
+        type="base"
+        title="Your risk of dying in the next year with no covid"
+        description="Estimated one year mortality risk for a 35 year old woman with x, yand z is:"
+      />
+      <VizColumn
         rate={mortalityRiskWithCovid}
-        relativeRisk={relativeRisk}
+        type="covid"
+        title="Your risk of dying in the next year with no covid"
+        description="Estimated one year mortality risk for a 35 year old woman with x, y and z is:"
+      />
+      <SliderPanel
         setRelativeRisk={setRelativeRisk}
+        relativeRisk={relativeRisk}
       />
     </Container>
   );
