@@ -47,6 +47,7 @@ const Container = styled.div`
   flex-direction: column;
   padding: 20px 40px;
 `;
+
 const RadioWrapper = styled.div`
   margin-top: 20px;
 `;

@@ -47,17 +47,13 @@ interface Container {
 
 const Container = styled.div`
   display: flex;
-  flex: 1;
-  height: 250px;
-  border-top: 1px solid ${colors.orange};
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  background: ${colors.backgroundGrey};
+  height: 250px;
   overflow: hidden;
-  background: white;
   padding: 0 20px;
+  border-top: 1px solid ${colors.orange};
+  background: white;
   @media ${device.tablet} {
     transition: height 0s, opacity 1s;
     width: 100vw;
