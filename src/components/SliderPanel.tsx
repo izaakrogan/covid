@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import T from './Typography';
@@ -13,8 +13,11 @@ interface Props {
 }
 
 export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
+  const [loaded, setLoaded] = useState(false);
+
+  setTimeout(() => setLoaded(true), 100);
   return (
-    <Container>
+    <Container loaded={loaded}>
       <PanelColumn
         title="Impact of Corona virus"
         description="The impact of Corona virus is a combination of the virus itself as well as the ability of the health system to cope."
@@ -42,7 +45,7 @@ export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
 }
 
 interface Container {
-  open: boolean;
+  loaded: boolean;
 }
 
 const Container = styled.div`
@@ -54,6 +57,8 @@ const Container = styled.div`
   padding: 0 20px;
   border-top: 1px solid ${colors.orange};
   background: white;
+  opacity: ${({ loaded }: Container) => (loaded ? 1 : 0)};
+  transition: opacity 0.7s;
   @media ${device.tablet} {
     transition: height 0s, opacity 1s;
     width: 100vw;
