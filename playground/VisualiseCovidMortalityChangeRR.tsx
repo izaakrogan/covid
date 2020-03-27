@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import T from './Typography';
-import Radio from './Radio';
+import T from '../src/components/Typography';
+import Radio from '../src/components/Radio';
 
 interface Props {
   setRelativeRisk: (a: number) => void;

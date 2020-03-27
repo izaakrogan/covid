@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import T from './Typography';
-import colors from '../style/colors';
-import device from '../style/device';
-import ChangeRR from './VisualiseCovidMortalityChangeRR';
 import Radio from './Radio';
 
 interface Props {

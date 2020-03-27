@@ -15,5 +15,12 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src", "playground/Slider.tsx", "playground/SliderColumn.tsx"]
+  "include": [
+    "src",
+    "playground/Slider.tsx",
+    "playground/SliderColumn.tsx",
+    "playground/PageOne.tsx",
+    "playground/PageOneVisualisation.tsx",
+    "playground/VisualiseCovidMortalityChangeRR.tsx"
+  ]
 }

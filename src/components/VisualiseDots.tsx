@@ -8,7 +8,7 @@ interface Props {
   type: string;
 }
 
-export default function BaseMortality({ rate, type }: Props) {
+export default function VisualiseDots({ rate, type }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [centerX, setCenterX] = useState(0);
   const [centerY, setCenterY] = useState(0);
