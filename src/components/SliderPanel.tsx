@@ -14,6 +14,7 @@ interface Props {
 
 export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
   const [loaded, setLoaded] = useState(false);
+  const [mock, setMock] = useState(10);
 
   setTimeout(() => setLoaded(true), 100);
   return (
@@ -37,8 +38,8 @@ export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
           { label: 'Medium (10%)', val: 10 },
           { label: 'High (80%)', val: 80 },
         ]}
-        onChange={() => console.log('called')}
-        defaultVal={80}
+        onChange={setMock}
+        defaultVal={mock}
       />
     </Container>
   );
