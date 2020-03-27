@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import * as d3 from 'd3';
-import colors from '../style/colors';
+import colors from '../src/style/colors';
 
 export default function Slider({ id, setVal }) {
   useEffect(() => {

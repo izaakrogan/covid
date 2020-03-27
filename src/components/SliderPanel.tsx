@@ -1,40 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SliderColumn from './SliderColumn';
 import T from './Typography';
 import colors from '../style/colors';
 import device from '../style/device';
-import arrow from '../images/down-arrow.svg';
+import ChangeRR from './VisualiseCovidMortalityChangeRR';
+import PanelColumn from './PanelColumn';
 
 interface Props {
-  sliderPanelOpen: boolean;
-  setSliderPanelOpen: any;
   setRelativeRisk: (a: number) => void;
+  relativeRisk: number;
 }
 
-export default function SliderPanel({
-  sliderPanelOpen,
-  setSliderPanelOpen,
-  setRelativeRisk,
-}: Props) {
+export default function SliderPanel({ setRelativeRisk, relativeRisk }: Props) {
   return (
-    <Container open={sliderPanelOpen}>
-      <Title>
-        Change The <br />
-        Assumptions
-      </Title>
-      <SliderColumn
-        id="slider-two"
-        title="Estimated mortality rate of people with my condition"
-        subtitle="blah"
-        handleChange={setRelativeRisk}
+    <Container>
+      <PanelColumn
+        title="Impact of Covid 19"
+        description="The impact of COVID-19 is a combination of the virus itself as well as the ability of the health system to cope."
+        options={[
+          { label: 'mild', val: 1.2 },
+          { label: 'moderate', val: 1.5 },
+          { label: 'severe', val: 2 },
+        ]}
+        onChange={setRelativeRisk}
+        defaultVal={relativeRisk}
       />
-      <Arrow
-        src={arrow}
-        sliderPanelOpen={sliderPanelOpen}
-        onClick={() => setSliderPanelOpen(!sliderPanelOpen)}
+      <PanelColumn
+        title="% of population infected with COVID-19"
+        description="The percentage of people with the infection in the population affects how likely you are to be infected with COVID-19."
+        options={[
+          { label: 'Low (1%)', val: 1.2 },
+          { label: 'Medium (10%)', val: 1.2 },
+          { label: 'High (80%)', val: 1.2 },
+        ]}
+        onChange={setRelativeRisk}
+        defaultVal={relativeRisk}
       />
+      {/* <ChangeRR setRelativeRisk={setRelativeRisk} relativeRisk={0.2} /> */}
     </Container>
   );
 }
@@ -44,27 +47,16 @@ interface Container {
 }
 
 const Container = styled.div`
-  width: 100%;
+  max-width: 70%;
+  height: 250px;
   border-top: 1px solid ${colors.orange};
   display: flex;
   justify-content: space-between;
-  transition: height 0.5s;
   position: absolute;
   bottom: 0;
   background: ${colors.backgroundGrey};
   overflow: hidden;
   background: white;
-  ${({ open }: Container) => {
-    if (open) {
-      return `
-        height: 200px;
-      `;
-    } else {
-      return `
-        height: 0;
-      `;
-    }
-  }}
 
   @media ${device.tablet} {
     transition: height 0s, opacity 1s;
@@ -73,36 +65,10 @@ const Container = styled.div`
     left: 0;
     z-index: 20;
     opacity: 0;
-    ${({ open }: Container) => {
-      if (open) {
-        return `
-          opacity: 1;
-          height: 100%;
-        `;
-      } else {
-        return `
-          height: 0;
-        `;
-      }
-    }}
   }
 `;
 
 const Title = styled(T.H3)`
   margin-left: 30px;
   margin-top: 50px;
-`;
-
-interface Arrow {
-  sliderPanelOpen: boolean;
-}
-
-const Arrow = styled.img`
-  position: absolute;
-  right: 10px;
-  width: 15px;
-  cursor: pointer;
-  top: 10px;
-  transform: ${({ sliderPanelOpen }: Arrow) =>
-    sliderPanelOpen ? null : 'rotate(180deg)'};
 `;

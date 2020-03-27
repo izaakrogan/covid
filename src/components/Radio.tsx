@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import T from './Typography';
+import colors from '../style/colors';
 
 interface Props {
   value: number;
@@ -44,5 +45,8 @@ const Box = styled.div`
   height: 20px;
   width: 20px;
   margin-right: 5px;
-  background-color: ${({ selected }: Box) => (selected ? 'green' : 'white')};
+  cursor: pointer;
+  border: 2px solid ${colors.orange};
+  background-color: ${({ selected }: Box) =>
+    selected ? colors.orange : 'white'};
 `;

@@ -41,7 +41,6 @@ const Container = styled.div`
   height: 300px;
   width: 100%;
   overflow: hidden;
-  border: 1px solid;
 `;
 
 const Svg = styled.svg`
