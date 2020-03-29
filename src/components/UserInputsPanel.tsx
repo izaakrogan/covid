@@ -49,7 +49,8 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
       return conditionMatch && ageMatch && sexMatch && multiMatch;
     });
 
-    return Math.random() / 5;
+    if (!filtered) return;
+    return filtered.km1;
   }
 
   function matchCondition(condition) {
@@ -72,7 +73,7 @@ export default function UserInputsPanel({ setBaseRate, setPage }: Props) {
   }
 
   function matchMulti(condition) {
-    const noCondition = !selectedCondition;
+    const noCondition = !selectedCondition || condition.n_rf === 0;
     if (noCondition) return condition.n_rf === 0;
     const multi = multiCondition ? '2+' : 1;
     return condition.n_rf === multi;
