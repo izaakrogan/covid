@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ForceDescription from './ForceDescription';
+import ForceDescription from './VisForceTextDescription';
 
 interface Props {
   base: number;

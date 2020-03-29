@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import Dots from './ForceDirected';
+import Dots from './VisForceViz';
 
 interface Props {
   rate: number;

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import * as TS from '../types';
-import InputWrapper from './InputWrapper';
-import Dropdown from './ConditionDropdown';
-import Checkbox from './ConditionCheckbox';
+import InputWrapper from './InputsPanelInputWrapper';
+import Dropdown from './InputsPanelConditionDropdown';
+import Checkbox from './InputsPanelConditionCheckbox';
 
 interface Props {
   selectedCondition: TS.Condition;
